@@ -82,6 +82,10 @@ EXCEPT for the navigation */
   you can add a line below here that says:
   text-decoration:none; */
 }
+#headerArea {
+  width: 100%;
+  /* Add any additional styles for the header area if needed */
+}
 #header {
   width:100%;
   background-color:#5e4e8c; /* header color here! */
@@ -102,19 +106,23 @@ EXCEPT for the navigation */
 
 /* navigation section!! */
 #navbar {
-  height:40px;
-  background-color:#10100f; /* navbar color */
-  width:100%;
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically if necessary */
+  height: 40px;
+  background-color: #10100f; /* Navbar color */
+  width: 100%;
 }
 #navbar ul {
-  display:flex;
-  padding:0;
-  margin:0;
-  list-style-type:none;
-  justify-content:space-evenly;
+  display: flex;
+  justify-content: center; /* Center list items horizontally */
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
 }
 #navbar li {
-  padding-top:10px;
+  margin: 0 25px; /* Adjust this value as needed for spacing */
+  padding-top: 0px; /* Maintain existing vertical padding */
 }
 
 /* navigation links*/
@@ -122,6 +130,7 @@ EXCEPT for the navigation */
   color:#e0d5a2; /* navbar text color */
   font-weight:800;
   text-decoration:none; /* this removes the underline */
+  font-size: 20px; /* Increase font size */
 }
 /* navigation link when a link is hovered over */
 #navbar li a:hover {
@@ -233,5 +242,8 @@ and then subtrack it by 100. use this new number as the
   }
   #navbar ul {
     flex-wrap:wrap;
+  }
+  #navbar li a {
+    font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
