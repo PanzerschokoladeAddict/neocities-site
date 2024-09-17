@@ -1,0 +1,31 @@
+﻿name: Deploy to Neocities
+
+on:
+  push:
+    branches:
+      - master   # Change this to `master` if that's your default branch name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '17'   # Match this to your project's Node.js version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build site
+        run: npm run build
+
+      - name: Deploy to Neocities
+        uses: neocities/github-action@v1
+        with:
+          token: ${{ secrets.NEOCITIES_TOKEN }}
+          site: ./public  # Path to your site's build output directory
