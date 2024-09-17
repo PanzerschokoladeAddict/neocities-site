@@ -1,4 +1,4 @@
-﻿name: Deploy to neocities
+﻿name: Deploy to Neocities
 
 on:
   push:
@@ -14,10 +14,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Deploy to neocities
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '18' # Adjust based on your Node.js version
+
+    - name: Install dependencies
+      run: |
+        npm install
+
+    - name: Build site
+      run: |
+        # Replace with the build command for your static site generator
+        npm run build # For 11ty, it might be 'npx eleventy' or similar
+
+    - name: Deploy to Neocities
       uses: bcomnes/deploy-to-neocities@v1
       with:
         api_token: ${{ secrets.NEOCITIES_API_KEY }}
         cleanup: false
-        dist_dir: public # Change to fold your site is in, it's set to the root by default
+        dist_dir: public # Update to the correct build output directory if different
