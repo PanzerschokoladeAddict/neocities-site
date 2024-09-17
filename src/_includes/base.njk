@@ -9,14 +9,29 @@
 </head>
 
 <body>
-  <header>{% include 'header.njk' %}</header>
+  <div id="body">
+    <div id="container">
+      <header id="headerArea">
+        <div id="header">{% include 'header.njk' %}</div>
+        <nav id="navbar">{% include 'navigation.njk' %}</nav>
+      </header>
 
-  <nav>{% include 'navigation.njk' %}</nav>
+      <div id="flex">
+        {% include 'leftsidebar.njk' %}
 
-  <main>
-    <h1>{{ title }}</h1>
-    {{ content | safe }}
-  </main>
+        <main>
+          {% block mainContent %}
+          <!-- Default content if not overridden -->
+          {% endblock %}
+        </main>
 
-  <footer>{% include 'footer.njk' %}</footer>
+        {% include 'rightsidebar.njk' %}
+      </div>
+
+      <footer id="footer">
+        {% include 'footer.njk' %}
+      </footer>
+    </div>
+  </div>
 </body>
+</html>

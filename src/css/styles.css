@@ -1,144 +1,237 @@
-/* Global variables. */
 :root {
-    /* Set sans-serif & mono fonts */
-    --sans-font: -apple-system, BlinkMacSystemFont, "Avenir Next", Avenir,
-      "Nimbus Sans L", Roboto, Noto, "Segoe UI", Arial, Helvetica,
-      "Helvetica Neue", sans-serif;
-    --mono-font: Consolas, Menlo, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  --header-image:url('https://panzerschokolade.neocities.org/wp.png');
+  --body-bg-image:url('https://sadhost.neocities.org/images/tiles/purplesky.gif');
+   
+   /* colors */
+   --content:#43256E;
+}
+
+/* if you have the URL of a font, you can set it below */
+/* feel free to delete this if it's not your vibe */
+
+/* this seems like a lot for just one font and I would have to agree 
+but I wanted to include an example of how to include a custom font.
+If you download a font file you can upload it onto your Neocities
+and then link it! Many fonts have separate files for each style
+(bold, italic, etc. T_T) which is why there are so many!
+
+*/
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-Regular.ttf');
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-Bold.ttf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-Italic.ttf');
+    font-style: italic;
+}
+
+@font-face {
+    font-family: Nunito;
+    src: url('https://sadhost.neocities.org/fonts/Nunito-BoldItalic.ttf');
+    font-style: italic;
+    font-weight: bold;
+}
+
+body {
+  font-family:'Nunito', sans-serif;
+  margin:0;
+  background-color:#08031A;
+  /* you can delete the line below if you'd prefer to not use an image */
+  background-size:65px;
+  color:#fceaff;
+  background-image:var(--body-bg-image);
+}
+
+* {
+  box-sizing:border-box;
+}
+
+/* below this line is CSS for the layout */
+
+/* this is a CSS comment
+to uncomment a line of CSS, remove the * and the /
+before and after the text */
+
+
+/* the "container" is what wraps your entire website */
+/* if you want something (like the header) to be Wider than
+the other elements, you will need to move that div outside
+of the container */
+#container {
+  max-width:900px; /* this is the width of your layout! */
+  /* if you change the above value, scroll to the bottom
+  and change the media query according to the comment! */
+  margin: 0 auto; /* this centers the entire page */
+}
+
+/* the area below is for all links on your page
+EXCEPT for the navigation */
+#container a {
+  color:#ED64F5;
+  font-weight:bold;
+  /* if you want to remove the underline
+  you can add a line below here that says:
+  text-decoration:none; */
+}
+#header {
+  width:100%;
+  background-color:#5e4e8c; /* header color here! */
+  height:150px;
+  /* this is only for a background image! */
+  /* if you want to put images IN the header, 
+  you can add them directly to the <div id="header"></div> element! */
+  background-image:var(--header-image);
+  background-size:100%;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+}
+
+/* navigation section!! */
+#navbar {
+  height:40px;
+  background-color:#13092D; /* navbar color */
+  width:100%;
+}
+#navbar ul {
+  display:flex;
+  padding:0;
+  margin:0;
+  list-style-type:none;
+  justify-content:space-evenly;
+}
+#navbar li {
+  padding-top:10px;
+}
+
+/* navigation links*/
+#navbar li a {
+  color:#ED64F5; /* navbar text color */
+  font-weight:800;
+  text-decoration:none; /* this removes the underline */
+}
+/* navigation link when a link is hovered over */
+#navbar li a:hover {
+  color:#a49cba;
+  text-decoration:underline;
+}
+#flex {
+  display:flex;
+}
+
+/* this colors BOTH sidebars
+if you want to style them separately,
+create styles for #leftSidebar and #rightSidebar */
+aside {
+  background-color:#241445;
+  width:200px;
+  padding:20px;
+  font-size:smaller; /* this makes the sidebar text slightly smaller */
+  height:600px;
+  overflow:auto;
   
-    /* Default (light) theme */
-    --bg: #fff;
-    --accent-bg: #f5f7ff;
-    --text: #333;
-    --text-light: #585858;
-    --border: #d8dae1;
-    --accent: #0d47a1;
+}
+
+
+/* this is the color of the main content area,
+between the sidebars! */
+main {
+  background-color:#43256E;
+  flex:1;
+  padding:20px;
+  order:2;
+  height:600px;
+  overflow:auto;
+}
+
+/* what's this "order" stuff about??
+allow me to explain!
+if you're using both sidebars, the "order" value
+tells the CSS the order in which to display them.
+left sidebar is 1, content is 2, and right sidebar is 3! */
+
+*/
+#leftSidebar {
+  order:1;
+}
+#rightSidebar {
+  order:3;
+}
+
+footer {
+  background-color:#13092D; /* background color for footer */
+  width:100%;
+  height:40px;
+  padding:10px;
+  text-align:center; /* this centers the footer text */
+}
+h1, h2, h3 {
+  color:#ED64F5;
+}
+h1  {
+  font-size:25px;
+}
+strong { /* this styles bold text */
+  color:#ED64F5;
+}
+/* this is just a cool box, it's the darker colored one */
+.box {
+  background-color:#13092D;
+  border:1px solid #ED64F5;
+  padding:10px;
+}
+
+/* CSS for extras */
+
+#topBar {
+  width:100%;
+  height:30px;
+  padding:10px;
+  font-size:smaller;
+  background-color:#13092D;
+}
+
+/* so you wanna change the width of your page? 
+by default, the container width is 900px.
+in order to keep things responsive, take your new height,
+and then subtrack it by 100. use this new number as the 
+"max-width" value below
+*/
+
+@media only screen and (max-width: 800px) {
+  #flex {
+    flex-wrap:wrap;
   }
-  
-  /* Dark theme */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --bg: #212121;
-      --accent-bg: #2b2b2b;
-      --text: #dcdcdc;
-      --text-light: #ababab;
-      --border: #666;
-      --accent: #ffb300;
-    }
+  aside {
+    width:100%;
   }
-  
-  * {
-    box-sizing: border-box;
-  }
-  
-  html {
-    /* Set the font globally */
-    font-family: var(--sans-font);
-    scroll-behavior: smooth;
-  }
-  
-  /* Make the body a nice central block */
-  body {
-    color: var(--text);
-    background: var(--bg);
-    font-size: 1.15rem;
-    line-height: 1.5;
-    margin: 0 auto;
-    max-width: 40em;
-    padding: 0 1em;
-  }
-  
-  body > header {
-    text-align: center;
-    padding: 0 0.5rem 2rem 0.5rem;
-    box-sizing: border-box;
-  }
-  
-  body > header h1 {
-    max-width: 100%;
-    margin: 1rem auto;
-  }
-  
-  /* Format navigation */
-  nav {
-    border-bottom: 1px solid var(--border);
-    font-size: 1rem;
-    line-height: 2;
-    padding: 1rem 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    padding-bottom: 2rem;
-  }
-  
-  nav a {
-    margin: 1rem 1rem 0 0;
-    color: var(--text) !important;
-    padding: 0.1rem 1rem;
-  }
-  
-  nav a:hover {
-    color: var(--accent) !important;
-  }
-  
-  nav a:last-child {
-    margin-right: 0;
-  }
-  
-  /* Reduce nav side on mobile */
-  @media only screen and (max-width: 750px) {
-    nav a {
-      border: none;
-      padding: 0;
-      color: var(--accent);
-      text-decoration: underline;
-      line-height: 1;
-    }
-  }
-  
-  /* Add a little padding to ensure spacing is correct between content and nav */
+  /* the order of the items is adjusted here for responsiveness!
+  since the sidebars would be too small on a mobile device.
+  feel free to play around with the order!
+  */
   main {
-    padding-top: 1.5rem;
+    order:1;
   }
-  
-  body > footer {
-    margin-top: 4rem;
-    padding: 2rem 1rem 1.5rem 1rem;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    text-align: center;
-    border-top: 1px solid var(--border);
+  #leftSidebar {
+    order:2;
   }
-  
-  /* Format headers */
-  
-  h1 {
-    font-size: 3rem;
+  #rightSidebar {
+    order:3;
   }
-  
-  h2 {
-    font-size: 2.6rem;
-    margin-top: 3rem;
+  #navbar ul {
+    flex-wrap:wrap;
   }
-  
-  /* Reduce header size on mobile */
-  @media only screen and (max-width: 720px) {
-    h1 {
-      font-size: 2.5rem;
-    }
-  
-    h2 {
-      font-size: 2.1rem;
-    }
-  }
-  
-  /* Format links */
-  a,
-  a:visited {
-    color: var(--accent);
-  }
-  
-  a:hover {
-    text-decoration: none;
-  }
+}
