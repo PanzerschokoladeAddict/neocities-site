@@ -3,7 +3,7 @@
   --body-bg-image:url('https://panzerschokolade.neocities.org/img/sky.gif');
    
    /* colors */
-   --content:#43256E;
+   --content:#151c3e;
 }
 
 /* if you have the URL of a font, you can set it below */
@@ -44,7 +44,7 @@ and then link it! Many fonts have separate files for each style
 body {
   font-family:'Nunito', sans-serif;
   margin:0;
-  background-color:#08031A;
+  background-color:#eff0f0;
   /* you can delete the line below if you'd prefer to not use an image */
   background-size:65px;
   color:#fceaff;
@@ -76,7 +76,7 @@ of the container */
 /* the area below is for all links on your page
 EXCEPT for the navigation */
 #container a {
-  color:#ED64F5;
+  color:#e0d5a2;
   font-weight:bold;
   /* if you want to remove the underline
   you can add a line below here that says:
@@ -103,7 +103,7 @@ EXCEPT for the navigation */
 /* navigation section!! */
 #navbar {
   height:40px;
-  background-color:#13092D; /* navbar color */
+  background-color:#10100f; /* navbar color */
   width:100%;
 }
 #navbar ul {
@@ -119,7 +119,7 @@ EXCEPT for the navigation */
 
 /* navigation links*/
 #navbar li a {
-  color:#ED64F5; /* navbar text color */
+  color:#e0d5a2; /* navbar text color */
   font-weight:800;
   text-decoration:none; /* this removes the underline */
 }
@@ -136,7 +136,7 @@ EXCEPT for the navigation */
 if you want to style them separately,
 create styles for #leftSidebar and #rightSidebar */
 aside {
-  background-color:#241445;
+  background-color:#181817;
   width:200px;
   padding:20px;
   font-size:smaller; /* this makes the sidebar text slightly smaller */
@@ -149,7 +149,7 @@ aside {
 /* this is the color of the main content area,
 between the sidebars! */
 main {
-  background-color:#43256E;
+  background-color:#151c3e;
   flex:1;
   padding:20px;
   order:2;
@@ -172,14 +172,14 @@ left sidebar is 1, content is 2, and right sidebar is 3! */
 }
 
 footer {
-  background-color:#13092D; /* background color for footer */
+  background-color:#10100f; /* background color for footer */
   width:100%;
   height:40px;
   padding:10px;
   text-align:center; /* this centers the footer text */
 }
 h1, h2, h3 {
-  color:#ED64F5;
+  color:#e0d5a2;
 }
 h1  {
   font-size:25px;
@@ -189,8 +189,8 @@ strong { /* this styles bold text */
 }
 /* this is just a cool box, it's the darker colored one */
 .box {
-  background-color:#13092D;
-  border:1px solid #ED64F5;
+  background-color:#0c143a;
+  border:1px solid #eacd4e;
   padding:10px;
 }
 
