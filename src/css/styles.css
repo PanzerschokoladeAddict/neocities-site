@@ -287,3 +287,16 @@ and then subtrack it by 100. use this new number as the
 .music-player button#pause {
   transform: translateY(-4px); /* Adjust this value to align pause */
 }
+
+.badge-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create two equal-width columns */
+  gap: 0px; /* Adjust the space between the badges */
+  justify-items: center; /* Center badges within each column */
+}
+
+.badge-container img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
