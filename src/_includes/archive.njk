@@ -1,0 +1,26 @@
+{% extends "base.njk" %}
+
+{% block title %}WebM Gallery - My Website{% endblock %}
+
+{% block mainContent %}
+<h2>Archive Gallery</h2>
+
+<div class="gallery">
+  {% set videos = [
+    { "src": "https://files.catbox.moe/mojhh6.mov", "title": "I've Never Met A Nice South African" },
+    { "src": "https://files.catbox.moe/cja1u4.webm", "title": "Meyer v Oil" },
+    { "src": "https://files.catbox.moe/2tpe8i.webm", "title": "Gulfwave" }
+  ] %}
+
+  {% for video in videos %}
+  <div class="video-item">
+    <h3>{{ video.title }}</h3>
+    <video controls width="320">
+      <source src="{{ video.src }}" type="video/webm">
+      Your browser does not support the WebM format.
+    </video>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}
