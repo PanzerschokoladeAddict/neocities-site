@@ -1,0 +1,61 @@
+<div class="music-player">
+    <button id="prev">◁</button>
+    <button id="play">▶</button>
+    <button id="pause" disabled>■</button>
+    <button id="next">▷</button>
+    <audio id="audio" preload="auto">
+      <source src="song1.mp3" type="audio/mp3">
+    </audio>
+  </div>
+
+  <script>
+    const audio = document.getElementById('audio');
+    const playButton = document.getElementById('play');
+    const pauseButton = document.getElementById('pause');
+    const prevButton = document.getElementById('prev');
+    const nextButton = document.getElementById('next');
+
+    const songs = [
+    'https://files.catbox.moe/5mp08l.mp3',
+    'https://files.catbox.moe/gmh83g.mp3'
+    ];
+    let currentSongIndex = 0;
+
+    function loadSong(index) {
+      audio.src = songs[index];
+      audio.load(); 
+      playButton.disabled = false;
+      pauseButton.disabled = false;
+    }
+
+    playButton.addEventListener('click', () => {
+      audio.play();
+      playButton.disabled = true;
+      pauseButton.disabled = false;
+    });
+
+    pauseButton.addEventListener('click', () => {
+      audio.pause();
+      playButton.disabled = false;
+      pauseButton.disabled = true;
+    });
+
+    nextButton.addEventListener('click', () => {
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      loadSong(currentSongIndex);
+      audio.play();
+    });
+
+    prevButton.addEventListener('click', () => {
+      currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+      loadSong(currentSongIndex);
+      audio.play();
+    });
+
+    audio.addEventListener('ended', () => {
+      nextButton.click();
+    });
+
+    // Load the first song initially
+    loadSong(currentSongIndex);
+  </script>

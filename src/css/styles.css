@@ -250,3 +250,40 @@ and then subtrack it by 100. use this new number as the
     font-size: 14px; /* Adjust font size for smaller screens */
   }
 }
+
+/* Music player */
+
+.music-player {
+  display: flex;
+  align-items: center;
+  gap: 0px;
+  font-size: 20px;
+  background: #181817;
+  padding: 0px;
+  width: fit-content;
+  position: absolute;
+  bottom: 5;
+}
+.music-player button {
+  padding: 10px;
+  border: none;
+  background: #181817;
+  cursor: pointer;
+  font-size: 20px;
+  width:40px;
+  height:40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.music-player button:disabled {
+  background: #181817;
+  cursor: not-allowed;
+}
+.music-player button:hover {
+  background: #181817;
+} 
+
+.music-player button#pause {
+  transform: translateY(-4px); /* Adjust this value to align pause */
+}
