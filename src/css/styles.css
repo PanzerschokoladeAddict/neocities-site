@@ -185,6 +185,9 @@ footer {
   width:100%;
   height:40px;
   padding:10px;
+  display: flex; /* Enables flexbox layout */
+  align-items: center; /* Vertically centers content */
+  justify-content: center; /* Horizontally centers content */
   text-align:center; /* this centers the footer text */
 }
 h1, h2, h3 {
