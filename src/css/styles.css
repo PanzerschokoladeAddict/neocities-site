@@ -204,6 +204,9 @@ strong { /* this styles bold text */
   background-color:#0c143a;
   border:1px solid #eacd4e;
   padding:10px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  height: 210px;
 }
 
 /* CSS for extras */
@@ -299,4 +302,57 @@ and then subtrack it by 100. use this new number as the
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/*
+This is the video player
+*/
+.carousel-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  flex-direction: column;
+}
+
+.video-wrapper {
+  text-align: center;
+  width: 100%;
+}
+
+.video-wrapper video {
+  max-width: 100%;
+  height: auto;
+}
+
+.video-wrapper h4 {
+  margin-top: 10px; /* Space between video and title */
+  color: #ccc; /* Match this with your website's theme */
+}
+
+.arrow-left,
+.arrow-right {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.arrow-left {
+  left: -5px;
+}
+
+.arrow-right {
+  right: -5px;
+}
+
+.arrow-left:hover,
+.arrow-right:hover {
+  color: #fff;
 }

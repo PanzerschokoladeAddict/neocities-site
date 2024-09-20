@@ -3,27 +3,104 @@
 {% block title %}WebM Gallery - My Website{% endblock %}
 
 {% block mainContent %}
-<h2>Archive Gallery</h2>
+<center><h2>Archive Gallery</h2></center>
 
-<div class="gallery">
-  {% set videos = [
-    { "src": "https://files.catbox.moe/mojhh6.mov", "title": "I've Never Met A Nice South African" },
-    { "src": "https://files.catbox.moe/cja1u4.webm", "title": "Meyer v Oil" },
-    { "src": "https://files.catbox.moe/2tpe8i.webm", "title": "Gulfwave" },
-    { "src": "https://files.catbox.moe/yqnsa4.mp4", "title": "Tag Der Freiheit: All Alone" },
-    { "src": "https://files.catbox.moe/o01t29.webm", "title": "Desert Vibe" },
-    { "src": "https://files.catbox.moe/jmdo8p.webm", "title": "Go Home" }
-  ] %}
-
-  {% for video in videos %}
-  <div class="video-item">
-    <h3>{{ video.title }}</h3>
-    <video controls width="320">
-      <source src="{{ video.src }}" type="video/webm">
-      Your browser does not support the WebM format.
-    </video>
-  </div>
-  {% endfor %}
+<!-- Gulf War Collection -->
+<center><h3>Gulf Collection</h3></center>
+<div class="carousel-container" data-collection="gulf-war">
+    <div class="arrow-left">&#9664;</div> <!-- Left arrow -->
+    
+    <div class="video-wrapper">
+        <!-- Video displayed here -->
+        <video controls width="320">
+            <source src="https://files.catbox.moe/2tpe8i.webm" type="video/webm">
+            Your browser does not support this format.
+        </video>
+        <!-- Video title now placed below the video -->
+        <h4>Gulfwave</h4>
+    </div>
+    
+    <div class="arrow-right">&#9654;</div> <!-- Right arrow -->
 </div>
+
+<!-- Afrikaner Collection -->
+<center><h3>Afrikaner Collection</h3></center>
+<div class="carousel-container" data-collection="south-africa">
+    <div class="arrow-left">&#9664;</div> <!-- Left arrow -->
+    
+    <div class="video-wrapper">
+        <!-- Video displayed here -->
+        <video controls width="320">
+            <source src="https://files.catbox.moe/mojhh6.mov" type="video/mp4">
+            Your browser does not support this format.
+        </video>
+        <!-- Video title now placed below the video -->
+        <h4>I've Never Met A Nice South African</h4>
+    </div>
+    
+    <div class="arrow-right">&#9654;</div> <!-- Right arrow -->
+</div>
+
+<!-- World at War Collection -->
+<center><h3>World at War Collection</h3></center>
+<div class="carousel-container" data-collection="ww2">
+    <div class="arrow-left">&#9664;</div> <!-- Left arrow -->
+    
+    <div class="video-wrapper">
+        <!-- Video displayed here -->
+        <video controls width="320">
+            <source src="https://files.catbox.moe/yqnsa4.mp4" type="video/mp4">
+            Your browser does not support this format.
+        </video>
+        <!-- Video title now placed below the video -->
+        <h4>Tag Der Freiheit: All Alone</h4>
+    </div>
+    
+    <div class="arrow-right">&#9654;</div> <!-- Right arrow -->
+</div>
+
+<script>
+    // Define the collections with their respective videos
+    const collections = {
+        "south-africa": [
+            { src: "https://files.catbox.moe/mojhh6.mov", title: "I've Never Met A Nice South African" }
+        ],
+        "gulf-war": [
+            { src: "https://files.catbox.moe/2tpe8i.webm", title: "Gulfwave" },
+            { src: "https://files.catbox.moe/cja1u4.webm", title: "Meyer v Oil" },
+            { src: "https://files.catbox.moe/o01t29.webm", title: "Desert Vibe" },
+            { src: "https://files.catbox.moe/jmdo8p.webm", title: "Go Home" }
+        ],
+        "ww2": [
+            { src: "https://files.catbox.moe/yqnsa4.mp4", title: "Tag Der Freiheit: All Alone" }
+        ]
+    };
+
+    document.querySelectorAll('.carousel-container').forEach(container => {
+        const collectionName = container.getAttribute('data-collection');
+        const videos = collections[collectionName];
+        let currentIndex = 0;
+        const videoElement = container.querySelector("video");
+        const titleElement = container.querySelector("h4");
+
+        // Add event listeners for left and right arrows
+        container.querySelector('.arrow-left').addEventListener('click', () => {
+            currentIndex = (currentIndex > 0) ? currentIndex - 1 : videos.length - 1;
+            updateVideo();
+        });
+
+        container.querySelector('.arrow-right').addEventListener('click', () => {
+            currentIndex = (currentIndex < videos.length - 1) ? currentIndex + 1 : 0;
+            updateVideo();
+        });
+
+        function updateVideo() {
+            videoElement.src = videos[currentIndex].src;
+            titleElement.textContent = videos[currentIndex].title;
+            videoElement.load(); // Ensure the video loads properly
+            videoElement.play(); // Optional: Auto-play the video when changed
+        }
+    });
+</script>
 
 {% endblock %}
